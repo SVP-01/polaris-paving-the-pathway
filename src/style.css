@@ -1,0 +1,145 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-100 text-slate-950 antialiased;
+    font-family:
+      Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  }
+
+  ::selection {
+    @apply bg-emerald-200 text-slate-950;
+  }
+}
+
+@layer components {
+  .weather-sunny {
+    background:
+      radial-gradient(circle at top left, rgba(253, 224, 71, 0.38), transparent 35%),
+      linear-gradient(135deg, rgba(224, 242, 254, 0.9), rgba(255, 251, 235, 0.96));
+  }
+
+  .weather-partly {
+    background:
+      radial-gradient(circle at top left, rgba(226, 232, 240, 0.58), transparent 38%),
+      linear-gradient(135deg, rgba(241, 245, 249, 0.96), rgba(219, 234, 254, 0.82));
+  }
+
+  .weather-rain {
+    background:
+      radial-gradient(circle at top left, rgba(148, 163, 184, 0.34), transparent 38%),
+      linear-gradient(135deg, rgba(100, 116, 139, 0.34), rgba(30, 41, 59, 0.12));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .weather-rain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.12;
+    background-image: repeating-linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.65) 0 2px,
+      transparent 2px 18px
+    );
+  }
+
+  .weather-storm {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.98), rgba(30, 41, 59, 0.92), rgba(15, 23, 42, 0.98));
+    color: #f8fafc;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .weather-storm::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.2;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.25), transparent 20%),
+      radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.08), transparent 22%);
+  }
+
+  .weather-stormy {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .weather-storm-overlay,
+  .weather-cloud-overlay,
+  .weather-stars-overlay,
+  .weather-moon-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+
+  .weather-storm-overlay {
+    opacity: 0.2;
+    background:
+      linear-gradient(180deg, transparent 0 45%, rgba(148, 163, 184, 0.22) 45% 46%, transparent 46% 100%),
+      radial-gradient(circle at 25% 12%, rgba(96, 165, 250, 0.25), transparent 18%);
+  }
+
+  .weather-cloudy {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .weather-cloud-overlay {
+    opacity: 0.24;
+    background:
+      radial-gradient(circle at 16% 22%, rgba(255, 255, 255, 0.72), transparent 16%),
+      radial-gradient(circle at 36% 28%, rgba(255, 255, 255, 0.56), transparent 18%),
+      radial-gradient(circle at 72% 18%, rgba(255, 255, 255, 0.62), transparent 17%),
+      radial-gradient(circle at 84% 32%, rgba(255, 255, 255, 0.48), transparent 19%);
+    filter: blur(1px);
+  }
+
+  .weather-night-sky {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .weather-stars-overlay {
+    opacity: 0.5;
+    background-image:
+      radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.95) 0 1px, transparent 2px),
+      radial-gradient(circle at 22% 34%, rgba(255, 255, 255, 0.75) 0 1px, transparent 2px),
+      radial-gradient(circle at 32% 14%, rgba(255, 255, 255, 0.88) 0 1.5px, transparent 2.5px),
+      radial-gradient(circle at 48% 28%, rgba(255, 255, 255, 0.8) 0 1px, transparent 2px),
+      radial-gradient(circle at 62% 17%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+      radial-gradient(circle at 72% 38%, rgba(255, 255, 255, 0.75) 0 1px, transparent 2px),
+      radial-gradient(circle at 84% 12%, rgba(255, 255, 255, 0.92) 0 1px, transparent 2px),
+      radial-gradient(circle at 92% 28%, rgba(255, 255, 255, 0.72) 0 1px, transparent 2px),
+      radial-gradient(circle at 8% 72%, rgba(255, 255, 255, 0.78) 0 1px, transparent 2px),
+      radial-gradient(circle at 26% 82%, rgba(255, 255, 255, 0.8) 0 1px, transparent 2px),
+      radial-gradient(circle at 54% 74%, rgba(255, 255, 255, 0.9) 0 1px, transparent 2px),
+      radial-gradient(circle at 78% 84%, rgba(255, 255, 255, 0.84) 0 1px, transparent 2px);
+  }
+
+  .weather-full-moon {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .weather-moon-overlay {
+    opacity: 0.26;
+    background:
+      radial-gradient(circle at 76% 24%, rgba(255, 255, 255, 0.84) 0 11%, transparent 12%),
+      radial-gradient(circle at 76% 24%, rgba(255, 255, 255, 0.2) 0 14%, transparent 15%),
+      radial-gradient(circle at 76% 24%, rgba(255, 255, 255, 0.12) 0 22%, transparent 23%),
+      radial-gradient(circle at 14% 14%, rgba(255, 255, 255, 0.14), transparent 18%),
+      radial-gradient(circle at 86% 76%, rgba(255, 255, 255, 0.08), transparent 20%);
+  }
+}
