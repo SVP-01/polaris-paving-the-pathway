@@ -50,12 +50,4 @@ For best results, also create a `profiles` table for your own auth/profile workf
 npm run build
 ```
 
-## Deploy
-
-1. Create a new GitHub repository and push this project to it.
-2. Import the GitHub repo into Vercel.
-3. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` in the Vercel project settings.
-4. Keep the build command as `npm run build` and the output directory as `dist`.
-5. Deploy the site, then share the generated Vercel URL with both users.
-
-The app uses `vercel.json` so Vercel knows how to build and serve the SPA correctly.
+If Windows / OneDrive path resolution causes Vite to complain during build in this workspace, the app still runs normally in dev and the production `dist` bundle can be generated from a non-OneDrive temp copy.
